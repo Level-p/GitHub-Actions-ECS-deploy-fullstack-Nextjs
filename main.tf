@@ -9,7 +9,7 @@ data "aws_route53_zone" "zone" {
 }
 #calling acm certificate
 resource "aws_secretsmanager_secret" "app_secrets" {
-  name = "nextjs3-secrets"
+  name = "nextjs4-secrets"
 }
 
 resource "aws_secretsmanager_secret_version" "app_secrets" {

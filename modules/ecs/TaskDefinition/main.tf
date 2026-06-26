@@ -32,26 +32,26 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       ]
 
       
-      environment = [
+      secrets = [
       {
         name  = "GOOGLE_CLIENT_ID"
-        value = "${var.secret_arn}:GOOGLE_CLIENT_ID::"
+        valueFrom = "${var.secret_arn}:GOOGLE_CLIENT_ID::"
       },
       {
         name  = "GOOGLE_CLIENT_SECRET"
-        value = "${var.secret_arn}:GOOGLE_CLIENT_SECRET::"
+        valueFrom = "${var.secret_arn}:GOOGLE_CLIENT_SECRET::"
       },
       {
         name      = "NEXTAUTH_SECRET"
-         value = "${var.secret_arn}:NEXTAUTH_SECRET::"
+         valueFrom = "${var.secret_arn}:NEXTAUTH_SECRET::"
       },
       {
         name      = "NEXTAUTH_URL"
-        value = "${var.secret_arn}:NEXTAUTH_URL::"
+        valueFrom = "${var.secret_arn}:NEXTAUTH_URL::"
       },
       {
         name      = "NEXT_PUBLIC_FIREBASE_API_KEY"
-        value = "${var.secret_arn}:NEXT_PUBLIC_FIREBASE_API_KEY::"
+        valueFrom = "${var.secret_arn}:NEXT_PUBLIC_FIREBASE_API_KEY::"
       }
     ]
 
