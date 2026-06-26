@@ -9,7 +9,7 @@ data "aws_route53_zone" "zone" {
 }
 #calling acm certificate
 resource "aws_secretsmanager_secret" "app_secrets" {
-  name = "nextjs-secrets"
+  name = "nextjs3-secrets"
 }
 
 resource "aws_secretsmanager_secret_version" "app_secrets" {
@@ -133,6 +133,7 @@ module "task_definition" {
   name               = "${local.name}-task-def"
   execution_role_arn = module.iam.ecs_task_execution_role_arn
   secret_arn = aws_secretsmanager_secret.app_secrets.arn
+  task_role_arn = module.iam.ecs_task_role_arn
 }
 
 module "iam" {
